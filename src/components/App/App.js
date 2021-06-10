@@ -4,12 +4,26 @@ import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 
   const todoItem = 'Write new aplication';
-  const App = () => (
+  const App = () => {
+    const items = [
+      {
+        value: 'Write new aplication'
+      },
+      {
+        value: 'Write props'
+      },
+      {
+        value: 'Do all works'
+      }
+    ];
+
+    return (
     <div>
-    <h1>Important things or TODOS:</h1>
+      <h1>Important things or TODOS:</h1>
       <InputItem />
-      <ItemList todoItem = {todoItem} />
+      <ItemList items = {items} />
       <Footer count = {3} />
     </div>);
+}
 
 export default App;
