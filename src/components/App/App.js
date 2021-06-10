@@ -8,13 +8,16 @@ import styles from './App.module.css'
   const App = () => {
     const items = [
       {
-        value: 'Write new aplication'
+        value: 'Write new aplication',
+        isDone: true
       },
       {
-        value: 'Write props'
+        value: 'Write props',
+        isDone: false
       },
       {
-        value: 'Do all works'
+        value: 'Do all works',
+        isDone: true
       }
     ];
 
