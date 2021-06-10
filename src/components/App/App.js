@@ -23,10 +23,10 @@ import styles from './App.module.css'
 
     return (
     <div className={styles.wrap}>
-      <h1 className={styles.title}>Important things or TODOS:</h1>
+      <h1 className={styles.title}>TODOS:</h1>
       <InputItem />
       <ItemList items = {items} />
-      <Footer count = {3} />
+      <Footer count = {1} />
     </div>);
 }
 
