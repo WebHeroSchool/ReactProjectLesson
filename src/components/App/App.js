@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
     <h1>Important things or TODOS:</h1>
       <InputItem />
       <ItemList todoItem = {todoItem} />
-      <Footer />
+      <Footer count = {3} />
     </div>);
 
 export default App;
