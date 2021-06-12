@@ -5,27 +5,33 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.css'
 
   class App extends React.Component {
+    constructor(props){
+      super(props);
+
+      this.state ={
+          items: [
+          {
+              value: 'Write new aplication',
+              isDone: true
+          },
+          {
+              value: 'Write props',
+              isDone: false
+          },
+          {
+              value: 'Do all works',
+              isDone: true
+          }
+        ]
+      };
+    }
       render() {
-        const items = [
-        {
-          value: 'Write new aplication',
-          isDone: true
-        },
-        {
-          value: 'Write props',
-          isDone: false
-        },
-        {
-          value: 'Do all works',
-          isDone: true
-        }
-      ];
 
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>TODOS:</h1>
         <InputItem />
-        <ItemList items = {items} />
+        <ItemList items = {this.state.items} />
         <Footer count = {1} />
       </div>);
     }
