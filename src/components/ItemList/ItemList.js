@@ -10,14 +10,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-const ItemList = ({ items }) =>(<div>
+const ItemList = ({ items, onClickDone}) =>(<div>
   <List>
     {items.map(item => (
       <ListItem key={item.value} className={styles.item} dense button>
         <ListItemIcon>
-          <Checkbox inputProps={{'aria-label': 'uncontrolled-checkbox'}} />
+          <Checkbox inputProps={{'aria-label': 'uncontrolled-checkbox'}} onClick = {() => console.log(item.isDone)} />
         </ListItemIcon>
-        <ListItemText><Item value={item.value} isDone={item.isDone} /></ListItemText>
+        <ListItemText><Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} /></ListItemText>
         <ListItemSecondaryAction>
           <IconButton>
             <ClearIcon />
