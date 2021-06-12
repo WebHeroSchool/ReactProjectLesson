@@ -38,12 +38,21 @@ import styles from './App.module.css'
       this.setState({items: newItemList});
     };
 
+    onClikDelete = id => {
+      const newItemList = this.state.items.filter ( item => item.id != id);
+      this.setState({items: newItemList});
+    };
+
     render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>TODOS:</h1>
         <InputItem />
-        <ItemList items = {this.state.items} onClickDone = {this.onClickDone} />
+        <ItemList 
+        items = {this.state.items} 
+        onClickDone = {this.onClickDone} 
+        onClikDelete = {this.onClikDelete}
+        />
         <Footer count = {this.state.count} />
       </div>);
     }

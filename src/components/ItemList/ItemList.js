@@ -10,7 +10,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-const ItemList = ({ items, onClickDone, id}) =>(<div>
+const ItemList = ({ items, onClickDone, id, onClikDelete}) =>(<div>
   <List>
     {items.map(item => (
       <ListItem key={item.value} className={styles.item} dense button>
@@ -30,7 +30,7 @@ const ItemList = ({ items, onClickDone, id}) =>(<div>
         </ListItemText>
         <ListItemSecondaryAction>
           <IconButton>
-            <ClearIcon />
+            <ClearIcon onClick ={() => onClikDelete(item.id)}/>
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
