@@ -23,7 +23,7 @@ import styles from './App.module.css'
               id: 3
           }
         ],
-      count: 6
+      count: 3
     };
 
     onClickDone = id => {
@@ -43,11 +43,23 @@ import styles from './App.module.css'
       this.setState({items: newItemList});
     };
 
+    onClikAdd = () => this.setState(state => ({
+      items: [
+        ...state.items,
+        {
+          value: 'Add New Task',
+          isDone: false,
+          id: state.count + 1
+        }
+      ],
+      count: state.count + 1
+    }));
+
     render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>TODOS:</h1>
-        <InputItem />
+        <InputItem onClikAdd = {this.onClikAdd} />
         <ItemList 
         items = {this.state.items} 
         onClickDone = {this.onClickDone} 

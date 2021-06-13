@@ -1,8 +1,9 @@
 import React from 'react';
 import Item from '../Item/Item'
 import styles from './ItemList.module.css';
+import List from '@material-ui/core/List';
 
-const ItemList = ({ items, onClickDone, id, onClikDelete}) =>(<ul className={styles.list}>
+const ItemList = ({ items, onClickDone, onClikDelete}) =>(<List className={styles.list}>
     {items.map(item => <li key={item.id}>
       <Item 
       className={styles.item} 
@@ -13,6 +14,6 @@ const ItemList = ({ items, onClickDone, id, onClikDelete}) =>(<ul className={sty
       id={item.id}
       />
       </li>)}
-  </ul>);
+  </List>);
 
 export default ItemList;
