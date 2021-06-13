@@ -38,32 +38,42 @@ import styles from './App.module.css'
       this.setState({items: newItemList});
     };
 
-    onClikDelete = id => {
+    onCliсkDelete = id => {
       const newItemList = this.state.items.filter ( item => item.id !== id);
       this.setState({items: newItemList});
     };
 
-    onClikAdd = () => this.setState(state => ({
-      items: [
-        ...state.items,
-        {
-          value: 'Add New Task',
-          isDone: false,
-          id: state.count + 1
-        }
-      ],
-      count: state.count + 1
-    }));
+    onCliсkAdd = value => {
+         if ( value !== '') { 
+            this.setState(state => ({
+              items: [
+                ...state.items,
+                  {
+                    value,
+                    isDone: false,
+                    id: state.count + 1
+                  }
+              ],
+              count: state.count + 1,
+              error: false
+            }));
+       } else {
+          this.setState(state => ({ error: true }))
+       }
+    };
 
     render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>TODOS:</h1>
-        <InputItem onClikAdd = {this.onClikAdd} />
+        <InputItem 
+          onCliсkAdd = {this.onCliсkAdd} 
+          error={this.state.error} 
+        />
         <ItemList 
-        items = {this.state.items} 
-        onClickDone = {this.onClickDone} 
-        onClikDelete = {this.onClikDelete}
+          items = {this.state.items} 
+          onClickDone = {this.onClickDone} 
+          onCliсkDelete = {this.onCliсkDelete}
         />
         <Footer count = {this.state.count} />
       </div>);

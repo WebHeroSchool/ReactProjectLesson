@@ -8,7 +8,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-  const Item = ({value, isDone, onClickDone, id, onClikDelete}) => (<div>
+  const Item = ({value, isDone, onClickDone, id, onCliсkDelete}) => (<div>
     <ListItem dense button>
         <ListItemIcon onClick = {() => onClickDone(id)}>
           <Checkbox 
@@ -25,7 +25,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
         </ListItemIcon>
         <ListItemSecondaryAction>
           <IconButton>
-            <ClearIcon onClick ={() => onClikDelete(id)}/>
+            <ClearIcon onClick ={() => onCliсkDelete(id)}/>
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
