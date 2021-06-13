@@ -39,7 +39,7 @@ import styles from './App.module.css'
     };
 
     onClikDelete = id => {
-      const newItemList = this.state.items.filter ( item => item.id != id);
+      const newItemList = this.state.items.filter ( item => item.id !== id);
       this.setState({items: newItemList});
     };
 
