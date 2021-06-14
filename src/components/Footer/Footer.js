@@ -11,4 +11,8 @@ import Button from '@material-ui/core/Button';
     </div>
     </footer>
   )
+  Footer.defaultProps ={
+      count:0
+  };
+
   export default Footer;
