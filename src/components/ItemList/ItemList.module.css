@@ -1,10 +1,8 @@
-.item{
+.item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-   }
-.itemText{
-  margin-right: auto;
 }
-
- 
+.list {
+  padding-left: 0px;
+ }

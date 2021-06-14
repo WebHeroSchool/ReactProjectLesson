@@ -2,6 +2,8 @@
   color:#E6356C;
   font-size: 20px;
   font-family: Helvetica;
+  padding-top: 10px;
+  width: auto;
 }
 .done {
   color: #4A91EC;
