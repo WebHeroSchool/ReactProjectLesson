@@ -4,7 +4,7 @@ import styles from './ItemList.module.css';
 import List from '@material-ui/core/List';
 
 const ItemList = ({ items, onClickDone, onCliсkDelete}) =>(<List className={styles.list}>
-    {items.map(item => <li key={item.id}>
+    {items.map(item => <div key={item.id}>
       <Item 
       className={styles.item} 
       value={item.value} 
@@ -13,7 +13,7 @@ const ItemList = ({ items, onClickDone, onCliсkDelete}) =>(<List className={sty
       onCliсkDelete={onCliсkDelete}
       id={item.id}
       />
-      </li>)}
+      </div>)}
   </List>);
 
 export default ItemList;

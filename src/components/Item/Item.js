@@ -24,8 +24,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
           </label>
         </ListItemIcon>
         <ListItemSecondaryAction>
-          <IconButton>
-            <ClearIcon onClick ={() => onCliсkDelete(id)}/>
+          <IconButton onClick ={() => onCliсkDelete(id)}>
+            <ClearIcon />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
