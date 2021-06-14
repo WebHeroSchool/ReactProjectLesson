@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -7,6 +8,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+
 
   const Item = ({value, isDone, onClickDone, id, onCliсkDelete}) => (<div>
     <ListItem dense button>
@@ -30,5 +32,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
         </ListItemSecondaryAction>
       </ListItem>
   </div>);
+
+  Item.propTypes = {
+    value: PropTypes.string.isRequired,
+    isDone: PropTypes.bool.isRequired,
+    onClickDone: PropTypes.func.isRequired,
+    onCliсkDelete: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired
+  };
 
   export default Item;
