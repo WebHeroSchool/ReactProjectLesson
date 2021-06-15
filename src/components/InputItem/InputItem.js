@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './InputItem.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -54,5 +55,16 @@ import Button from '@material-ui/core/Button';
       </div>);
     }
   }
+
+    InputItem.propTypes = {
+      inputValue: PropTypes.string.isRequired,
+      onCliсkAdd: PropTypes.func.isRequired,
+      isError: PropTypes.bool.isRequired,
+      textField: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
+      onButtonClick: PropTypes.func.isRequired
+
+    };
 
   export default InputItem;
