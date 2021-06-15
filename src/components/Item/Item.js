@@ -9,29 +9,47 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
+  class Item extends React.Component {
+    componentDidMount() {
+      console.log('componentDidMount');
+    }
 
-  const Item = ({value, isDone, onClickDone, id, onCliсkDelete}) => (<div>
-    <ListItem dense button>
-        <ListItemIcon onClick = {() => onClickDone(id)}>
-          <Checkbox 
-          inputProps={{'aria-label': 'uncontrolled-checkbox'}} 
-          />
-          <label className ={ 
-              classnames({
-                [styles.item]: true,
-                [styles.done]: isDone
-              })
-          }>
-            {value}
-          </label>
-        </ListItemIcon>
-        <ListItemSecondaryAction>
-          <IconButton onClick ={() => onCliсkDelete(id)}>
-            <ClearIcon />
-          </IconButton>
-        </ListItemSecondaryAction>
-      </ListItem>
-  </div>);
+    componentDidUpdate() {
+      console.log('componentDidUpdate');
+    }
+
+    componentWillUnmount() {
+      console.log('componentWillUnmount');
+    }
+
+    render() {
+      const {value, isDone, onClickDone, id, onCliсkDelete} = this.props;
+
+      return(
+        <div>
+          <ListItem dense button>
+              <ListItemIcon onClick = {() => onClickDone(id)}>
+                <Checkbox 
+                inputProps={{'aria-label': 'uncontrolled-checkbox'}} 
+                />
+                <label className ={ 
+                    classnames({
+                      [styles.item]: true,
+                      [styles.done]: isDone
+                    })
+                }>
+                  {value}
+                </label>
+              </ListItemIcon>
+              <ListItemSecondaryAction>
+                <IconButton onClick ={() => onCliсkDelete(id)}>
+                  <ClearIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+        </div>);
+    }
+  }
 
   Item.propTypes = {
     value: PropTypes.string.isRequired,
