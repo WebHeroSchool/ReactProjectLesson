@@ -39,7 +39,7 @@ import Button from '@material-ui/core/Button';
             onChange={event => this.setState({inputValue: event.target.value})}
           />
         } else {
-          textField = textField = <TextField 
+          textField = <TextField 
             className={styles.input}
             id="standard-basic" 
             label="Add what to do" 
