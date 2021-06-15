@@ -16,10 +16,4 @@ const ItemList = ({ items, onClickDone, onCliсkDelete}) =>(<List className={sty
       </div>)}
   </List>);
 
-    ItemList.defaultProps ={
-      value: 'New task',
-      isDone: false,
-      id: 0
-    };
-
 export default ItemList;

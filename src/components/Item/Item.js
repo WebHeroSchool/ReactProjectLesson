@@ -31,4 +31,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
       </ListItem>
   </div>);
 
+   Item.defaultProps ={
+      value: 'New task',
+      isDone: false,
+      id: 0
+    };
+
   export default Item;
