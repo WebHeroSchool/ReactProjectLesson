@@ -75,7 +75,7 @@ import styles from './App.module.css'
           onClickDone = {this.onClickDone} 
           onCliсkDelete = {this.onCliсkDelete}
         />
-        <Footer count = {this.state.count} />
+        <Footer count = {this.state.items.length} />
       </div>);
     }
   }
