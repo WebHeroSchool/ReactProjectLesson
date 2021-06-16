@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css'
 
-  class App extends React.Component {
-    state ={
+  const App = () =>  {
+    const initialState = {
           items: [
           {
               value: 'Write new aplication',
@@ -26,8 +26,18 @@ import styles from './App.module.css'
       count: 3
     };
 
-    onClickDone = id => {
-      const newItemList = this.state.items.map( item =>{
+    const [items, setItems] = useState(initialState.items);
+    const [count, setCount] = useState(initialState.count);
+
+    useEffect( () => {
+        console.log('componentDidUpdate');
+    });
+    useEffect( () => {
+        console.log('componentDidMount');
+    }, []);
+
+    const onClickDone = id => {
+      const newItemList = items.map( item => {
         const newItem ={ ...item };
         if (item.id === id){
           newItem.isDone = !item.isDone;
@@ -35,49 +45,42 @@ import styles from './App.module.css'
 
         return newItem;
       });
-      this.setState({items: newItemList});
+
+      setItems(newItemList);
     };
 
-    onCliсkDelete = id => {
-      const newItemList = this.state.items.filter ( item => item.id !== id);
-      this.setState({items: newItemList});
+    const onCliсkDelete = id => {
+      const newItemList = items.filter( item => item.id !== id);
+      setItems(newItemList);
+      setCount(count - 1);
     };
 
-    onCliсkAdd = value => {
-         if ( value !== '') { 
-            this.setState(state => ({
-              items: [
-                ...state.items,
-                  {
-                    value,
-                    isDone: false,
-                    id: state.count + 1
-                  }
-              ],
-              count: state.count + 1,
-              error: false
-            }));
-       } else {
-          this.setState(state => ({ error: true }))
-       }
+    const onCliсkAdd = value => {
+        const newItemList = [
+            ...items,
+            {
+              value,
+              isDone: false,
+              id:count + 1
+            }        
+          ];
+      setItems(newItemList);
+      setCount(count + 1)
     };
 
-    render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>TODOS:</h1>
         <InputItem 
-          onCliсkAdd = {this.onCliсkAdd} 
-          error={this.state.error} 
+          onCliсkAdd = {onCliсkAdd}
         />
         <ItemList 
-          items = {this.state.items} 
-          onClickDone = {this.onClickDone} 
-          onCliсkDelete = {this.onCliсkDelete}
+          items = {items} 
+          onClickDone = {onClickDone} 
+          onCliсkDelete = {onCliсkDelete}
         />
-        <Footer count = {this.state.items.length} />
+        <Footer count = {count} />
       </div>);
-    }
-  }
+  };
 
 export default App;

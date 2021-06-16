@@ -10,14 +10,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
   class Item extends React.Component {
-    componentDidMount() {
-      console.log('componentDidMount');
-      this.timerID = setInterval (() => console.log('Memorry lost'), 1000)
-    }
-
-    componentWillUnmount() {
-      clearInterval(this.timerID);
-     }
 
     render() {
       const {value, isDone, onClickDone, id, onCliсkDelete} = this.props;
