@@ -1,0 +1,13 @@
+.wrap {
+  margin: auto;
+  width: 90%;
+  background-color: #fff;
+  padding: 4%;
+  text-align: center;
+}
+.title {
+  color: #b3deeb;
+  font-family: Helvetica;
+  font-size: 65px;
+  text-align: left;
+}

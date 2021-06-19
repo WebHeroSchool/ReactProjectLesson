@@ -1,0 +1,12 @@
+.wrap {
+  margin: auto;
+  width: 600px;
+  background-color: #fff;
+  padding: 4%;
+  text-align: left;
+} 
+.title {
+  color: #FAAF83;
+  font-family: Helvetica;
+  font-size: 35px;
+}
