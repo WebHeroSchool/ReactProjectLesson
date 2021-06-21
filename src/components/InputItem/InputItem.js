@@ -3,31 +3,24 @@ import styles from './InputItem.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-  class InputItem extends React.Component {
+   class InputItem extends React.Component {
     state = {
-      inputValue : '',
-      isError: false
+      inputValue : ''
     };
 
     onButtonClick = () => {
-     if (this.state.inputValue == false) {
-      this.setState({
-        isError: true
-      })
-    } else {
-      this.setState({
-        inputValue: '',
-        isError: false
-      })
+      this.setState ({
+        inputValue: ''
+      });
 
-      this.props.onCliсkAdd(this.state.inputValue.toUpperCase());
-      }
+      this.props.onCliсkAdd(this.state.inputValue);
     };
-    
+
     render(){
+      const isError = this.props.error;
       let textField;
 
-        if (this.state.isError == true) {
+        if (isError) {
           textField = <TextField
             error
             id="standard-error-helper-text"
@@ -36,7 +29,7 @@ import Button from '@material-ui/core/Button';
             defaultValue=" "
             helperText="Cant be empty!"
             value={this.state.inputValue}
-            onChange={event => this.setState({inputValue: event.target.value})}
+            onChange={event => this.setState({ inputValue: event.target.value })}
           />
         } else {
           textField = <TextField 

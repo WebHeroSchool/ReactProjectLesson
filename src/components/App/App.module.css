@@ -1,15 +1,14 @@
 .wrap {
-  margin: auto;
-  width: 30%;
-  background-color: #fff;
-  padding: 4%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
-.title {
-  color: #b3deeb;
+.menu {
   font-family: Helvetica;
-  font-size: 65px;
-  text-align: left;
+}
+.link {
+  text-decoration: none;
+  color: #2D8FEB;
+  font-size: 20px;
 }
 body{
   background-color: #b3deeb;
