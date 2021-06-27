@@ -16,23 +16,206 @@
   padding: 5px;
   width: 150px;
   border-radius: 50%;
+  float: right;
+  margin: -41px 48px 0 0;
 }
 .avatar:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 10px 1px rgba(0, 140, 186, 0.5);
+  cursor: grab;
 }
 .name {
   color: #44D2F0;
   font-family: "Lucida Console", "Courier New", monospace;
 }
+.list_wrap {
+  width: 400px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 .list{
   list-style-type: none;
+  padding: 0;
+  border: 5px solid #44D2F0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
 }
 .repo_name {
   color: #FAAF83;
   text-decoration: none;
   font-size: 25px;
-
+  font-weight: 700;
+  padding: 20px 70px;
+  opacity:1;
 }
 .repo_name:hover {
   color: #44D2F0;
-}  
+  opacity: .5;
+  cursor: grab;
+}
+.repos__item_style{
+  color: #FAAF83;
+  font-family: Helvetica;
+}
+.button {
+  display: flex;
+  justify-content: flex-start;
+}
+.icon {
+  width: 30px;
+  margin: 0 10px 0 0;
+}
+.project_list {
+  list-style-type: none;
+}
+.project_listItem {
+  font-size: 25px;
+  font-weight: 700;
+  color: #44D2F0;
+  opacity:1;
+}
+.project_listItem:hover {
+  color: #FAAF83;
+  opacity: .5;
+  cursor: grab;
+}
+a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 750px) and (min-width: 639px){
+  .wrap {
+    width: 750px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .avatar {
+    margin: -52px 153px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+  }
+  .repo_name {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 638px) and (min-width: 572px) {
+  .wrap {
+    width: 750px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .avatar {
+    margin: -52px 218px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+  }
+  .repo_name {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 571px) and (min-width: 462px) {
+  .wrap {
+    width: 715px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .avatar {
+    margin: -52px 288px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+  }
+  .repo_name {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 461px) and (min-width: 250px) {
+  .wrap {
+    width: 660px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .list_wrap {
+    width: 300px;
+  }
+  .avatar {
+    width:  130px;
+    margin: -52px 334px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+  }
+  .repo_name {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (width: 280px) and (height: 653px) {
+  .wrap {
+    width: 660px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .list_wrap {
+    width: 250px;
+  }
+  .avatar {
+    width:  105px;
+    margin: -52px 406px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+    margin: 0 0 0 -23px;
+  }
+  .repo_name {
+    font-size: 18px;
+    padding: 20px 60px;
+  }
+  .name {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (width: 320px) and (height: 568px) {
+  .wrap {
+    width: 660px;
+  }
+  .title {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  .list_wrap {
+    width: 250px;
+  }
+  .avatar {
+    width:  105px;
+    margin: -52px 385px 0 0;
+  }
+  .project_listItem {
+    font-size: 18px;
+    margin: 0 0 0 -23px;
+  }
+  .repo_name {
+    font-size: 18px;
+    padding: 20px 60px;
+  }
+  .name {
+    font-size: 14px;
+  }
+
+}

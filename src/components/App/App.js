@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 import ToDo from '../ToDo/ToDo';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
-import styles from './App.module.css'
+import styles from './App.module.css';
+import school from '../../img/School.png';
 
   const App = () => 
   (<Router>
     <div className={styles.wrap}>
     <Card>
-      <MenuList className={styles.menu}>
-      <Link to='/' className={styles.link}><MenuItem className={styles.menu}>About me</MenuItem></Link>
-      <Link to='/todo' className={styles.link}><MenuItem>TODO</MenuItem></Link>
-      <Link to='/contacts' className={styles.link}> <MenuItem>Contacts</MenuItem></Link>
-      </MenuList>
+      <div className={styles.menu}>
+      <Link to='/' className={styles.position}><div className={styles.link}>About me</div></Link>
+      <Link to='/todo' className={styles.position}><div className={styles.link}>TODO</div></Link>
+      <Link to='/contacts' className={styles.position}> <div className={styles.link}>Contacts</div></Link>
+      <div className={styles.position}><a href="https://webheroschool.ru/"><img src={school} alt="school img" className={styles.school_img} /></a></div>
+      </div>
     </Card>
     <Card>
       <Route path='/' exact component={About} />
