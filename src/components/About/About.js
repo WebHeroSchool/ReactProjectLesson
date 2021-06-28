@@ -19,8 +19,7 @@ class About extends React.Component {
     firstPage: 0,
     nextPage: 1,
     gameUlr: 'https://lalukins.github.io/JavaScriptGame/',
-    baliUlr: 'https://lalukins.github.io/FinalProjectHTML/#',
-    gitHub: 'https://github.com/Lalukins'
+    baliUlr: 'https://lalukins.github.io/FinalProjectHTML/#'
   }
   componentDidMount() {
       octokit.repos.listForUser({
@@ -70,7 +69,7 @@ class About extends React.Component {
       })
     }
   render() {
-    const {isLoading, repoList, isError, errorMessage, infoAboutUser, firstPage, nextPage,gameUlr,baliUlr,gitHub} = this.state;
+    const {isLoading, repoList, isError, errorMessage, infoAboutUser, firstPage, nextPage,gameUlr,baliUlr} = this.state;
     return(
       <div className={styles.wrap}>
         { isLoading ? <CircularProgress color="secondary" /> :
@@ -78,7 +77,7 @@ class About extends React.Component {
             <h1 className={styles.title}> About Me:</h1>
               {isError ? 'Cant get any information from the server! Error!:' + errorMessage :
                 <div>
-                  <a href={gitHub}><img src={infoAboutUser.avatar_url} alt='Accauntimg' className={styles.avatar} /></a>
+                  <a href={infoAboutUser.html_url}><img src={infoAboutUser.avatar_url} alt='Accauntimg' className={styles.avatar} /></a>
                   <p className={styles.name}> User Nikname - {infoAboutUser.login}</p>
                   <p className={styles.name}>{infoAboutUser.bio}</p>
                   <h3 className={styles.title}> My School projects :</h3>
@@ -100,7 +99,7 @@ class About extends React.Component {
                   <div className={styles.button}>
                       <ButtonGroup disableElevation variant="contained" color="primary">
                         <Button disabled={firstPage === 0} onClick = {() => this.onClickBackPage()}>Previous</Button>
-                        <Button disabled={repoList.length - nextPage < 0} onClick = {() => this.onClickNextPage()}>Next</Button>
+                        <Button disabled={repoList.length - nextPage <= 0} onClick = {() => this.onClickNextPage()}>Next</Button>
                       </ButtonGroup>
                   </div>
                 </div>
