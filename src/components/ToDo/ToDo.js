@@ -90,6 +90,7 @@ import styles from './ToDo.module.css';
 
       return(
         <div className={styles.wrap}>
+        <div>
         <h1 className={styles.title}>TODOS:</h1>
         <InputItem 
           items = {items}
@@ -100,6 +101,7 @@ import styles from './ToDo.module.css';
           onClickDone = {onClickDone} 
           onClickDelete = {onClickDelete}
         />
+        </div>
         <Footer 
           filtered={filter}
           onClickFilter={onClickFilter}

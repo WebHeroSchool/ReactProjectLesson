@@ -28,7 +28,7 @@ import Button from '@material-ui/core/Button';
 
     render(){
 
-      return (<div>
+      return (<div className={styles.wrap}>
           <TextField 
             className={styles.input}
             id="standard-basic" 

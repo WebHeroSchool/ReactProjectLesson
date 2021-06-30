@@ -3,8 +3,11 @@ import styles from './Footer.module.css';
 import Button from '@material-ui/core/Button';
 
   const Footer = ({id, onClickDeleteDone, onClickFilter, activeTask, doneTask}) => (<footer>
-    <div className={styles.count} onClick={() => onClickFilter('active')}> {activeTask} - Things left to do.</div>
-    <div>
+    <div className={styles.count} 
+         onClick={() => onClickFilter('active')}>
+          {activeTask} - Things left to do.
+    </div>
+    <div className={styles.buttons}>
       <Button onClick={() => onClickFilter('allTask')}>
         ALL {activeTask + doneTask}
       </Button>

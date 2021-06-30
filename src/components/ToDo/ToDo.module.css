@@ -1,9 +1,13 @@
 .wrap {
   margin: auto;
-  width: 90%;
+  width: 600px;
   background-color: #fff;
   padding: 4%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
 }
 .title {
   color: #b3deeb;
