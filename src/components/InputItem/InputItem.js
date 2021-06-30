@@ -5,45 +5,39 @@ import Button from '@material-ui/core/Button';
 
    class InputItem extends React.Component {
     state = {
-      inputValue : ''
+      inputValue : '',
+      error: false,
+      labelText: 'Add what to do'
     };
 
     onButtonClick = () => {
       this.setState ({
-        inputValue: ''
+        inputValue: '',
+        labelText: 'Add what to do'
       });
 
-      this.props.onCliсkAdd(this.state.inputValue);
+      if(this.state.inputValue === ''){
+        this.setState({error : true, labelText: 'Cant be empty!' });
+      } else if (this.props.items.every(item => item.value !== this.state.inputValue)){
+        this.setState({error:false, labelText: 'Add what to do'});
+        this.props.onClickAdd(this.state.inputValue);
+      }else {
+        this.setState ({error: true, labelText: 'This task already exist in list !'});
+      }
     };
 
     render(){
-      const isError = this.props.error;
-      let textField;
 
-        if (isError) {
-          textField = <TextField
-            error
-            id="standard-error-helper-text"
-            fullWidth
-            label="Error"
-            defaultValue=" "
-            helperText="Cant be empty!"
-            value={this.state.inputValue}
-            onChange={event => this.setState({ inputValue: event.target.value })}
-          />
-        } else {
-          textField = <TextField 
+      return (<div className={styles.wrap}>
+          <TextField 
             className={styles.input}
             id="standard-basic" 
-            label="Add what to do" 
+            label={this.state.labelText}
+            error={this.state.error}
             fullWidth
             value={this.state.inputValue}
             onChange={event => this.setState({inputValue: event.target.value})}
            />
-        }
-
-      return (<div>
-        <div> {textField} </div>
         <Button 
           variant="contained" 
           color="primary"
@@ -54,5 +48,5 @@ import Button from '@material-ui/core/Button';
       </div>);
     }
   }
-
+ 
   export default InputItem;

@@ -5,14 +5,14 @@ import styles from './ItemList.module.css';
 import List from '@material-ui/core/List';
 
 
-const ItemList = ({ items, onClickDone, onCliсkDelete}) =>(<List className={styles.list}>
+const ItemList = ({ items, onClickDone, onClickDelete}) =>(<List className={styles.list}>
     {items.map(item => <div key={item.id}>
       <Item 
       className={styles.item} 
       value={item.value} 
       isDone={item.isDone} 
       onClickDone={onClickDone} 
-      onCliсkDelete={onCliсkDelete}
+      onClickDelete={onClickDelete}
       id={item.id}
       />
       </div>)}
@@ -21,7 +21,7 @@ const ItemList = ({ items, onClickDone, onCliсkDelete}) =>(<List className={sty
     ItemList.propTypes = {
       items: PropTypes.array.isRequired,
       onClickDone: PropTypes.func.isRequired,
-      onCliсkDelete: PropTypes.func.isRequired
+      onClickDelete: PropTypes.func.isRequired
   };
 
 export default ItemList;

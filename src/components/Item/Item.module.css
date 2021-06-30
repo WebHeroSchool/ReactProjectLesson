@@ -1,10 +1,19 @@
 .item {
   color:#E6356C;
   font-size: 20px;
+  font-weight: 700;
   font-family: Helvetica;
   padding-top: 10px;
-  width: auto;
+  width: 283px;
 }
 .done {
   color: #4A91EC;
+}
+
+@media screen and (max-width: 450px) and (min-width: 150px){
+  .item {
+    font-size: 15px;
+    width: 144px;
+    font-weight: 700;
+  }
 }

@@ -12,14 +12,16 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
   class Item extends React.Component {
 
     render() {
-      const {value, isDone, onClickDone, id, onCliсkDelete} = this.props;
+      const {value, isDone, onClickDone, id, onClickDelete} = this.props;
 
       return(
         <div>
           <ListItem dense button>
-              <ListItemIcon onClick = {() => onClickDone(id)}>
+              <ListItemIcon >
                 <Checkbox 
-                inputProps={{'aria-label': 'uncontrolled-checkbox'}} 
+                checked = {isDone}
+                inputProps={{'aria-label': 'primary checkbox'}} 
+                onClick = {() => onClickDone(id)}
                 />
                 <label className ={ 
                     classnames({
@@ -31,7 +33,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
                 </label>
               </ListItemIcon>
               <ListItemSecondaryAction>
-                <IconButton onClick ={() => onCliсkDelete(id)}>
+                <IconButton onClick ={() => onClickDelete(id)}>
                   <ClearIcon />
                 </IconButton>
               </ListItemSecondaryAction>
@@ -44,7 +46,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
     value: PropTypes.string.isRequired,
     isDone: PropTypes.bool.isRequired,
     onClickDone: PropTypes.func.isRequired,
-    onCliсkDelete: PropTypes.func.isRequired,
+    onClickDelete: PropTypes.func.isRequired,
     id: PropTypes.number.isRequired
   };
 

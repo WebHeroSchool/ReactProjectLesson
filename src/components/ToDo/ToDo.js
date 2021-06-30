@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './ToDo.module.css';
 
- class ToDo extends React.Component {
-    state ={
-      items: [
+ const ToDo = () => {
+   const initialState ={
+      items: JSON.parse(localStorage.getItem('items')) ||
+      [
         {
           value: 'Write new aplication',
           isDone: false,
@@ -23,11 +24,19 @@ import styles from './ToDo.module.css';
           id: 3
         }
       ],
-      count: 3
+      count: 3,
+      filter: 'all'
     };
 
-    onClickDone = id => {
-      const newItemList = this.state.items.map( item =>{
+    const [items, setItems] = useState(initialState.items);
+    const [count, setCount] = useState(initialState.count);
+    const [filter, setFilter] =useState('allTask');
+    let itemsFilter;
+
+    useEffect(() => {localStorage.setItem('items', JSON.stringify(items));})
+
+    const onClickDone = id => {
+      const newItemList = items.map( item =>{
         const newItem ={ ...item };
         if (item.id === id){
           newItem.isDone = !item.isDone;
@@ -35,49 +44,73 @@ import styles from './ToDo.module.css';
 
         return newItem;
       });
-      this.setState({items: newItemList});
+      setItems(newItemList);
     };
 
-    onCliсkDelete = id => {
-      const newItemList = this.state.items.filter ( item => item.id !== id);
-      this.setState({items: newItemList});
+    const onClickDelete = id => {
+      const newItemList = items.filter(item =>{
+        return item.id !== id; 
+      });
+      setItems(newItemList);
     };
 
-    onCliсkAdd = value => {
-         if ( value !== '') { 
-            this.setState(state => ({
-              items: [
-                ...state.items,
-                  {
-                    value,
-                    isDone: false,
-                    id: state.count + 1
-                  }
-              ],
-              count: state.count + 1,
-              error: false
-            }));
-       } else {
-          this.setState(state => ({ error: true }))
-       }
+    const onClickAdd = value => {
+      setItems(
+        [...items,
+          {
+            value: value,
+            isDone: false,
+            id: count + 1
+          }]);
+      setCount(count + 1);
     };
 
-    render() {
+    const onClickDeleteDone = id => {
+      const newItemList = items.filter(item =>{
+        return item.isDone !== true; 
+      });
+        setItems(newItemList);
+    };
+
+    const activeTask = (items.filter((item) => item.isDone === false)).length;
+    const doneTask = (items.filter((item) => item.isDone === true)).length;
+
+    const onClickFilter = filtered => setFilter(filtered);
+
+    switch (filter) {
+      case 'done':
+        itemsFilter = items.filter(item => item.isDone);
+        break;
+      case 'active':
+        itemsFilter = items.filter(item => !item.isDone);
+        break;
+      default:
+        itemsFilter = items;    
+    }
+
       return(
         <div className={styles.wrap}>
+        <div>
         <h1 className={styles.title}>TODOS:</h1>
         <InputItem 
-          onCliсkAdd = {this.onCliсkAdd} 
-          error={this.state.error} 
+          items = {items}
+          onClickAdd = {onClickAdd}
         />
         <ItemList 
-          items = {this.state.items} 
-          onClickDone = {this.onClickDone} 
-          onCliсkDelete = {this.onCliсkDelete}
+          items={itemsFilter} 
+          onClickDone = {onClickDone} 
+          onClickDelete = {onClickDelete}
         />
-        <Footer count = {this.state.items.length} />
+        </div>
+        <Footer 
+          filtered={filter}
+          onClickFilter={onClickFilter}
+          activeTask = {activeTask}
+          doneTask = {doneTask}
+          onClickDeleteDone={onClickDeleteDone}
+         />
         </div>);
-    }
+    
  };
 
  export default ToDo;

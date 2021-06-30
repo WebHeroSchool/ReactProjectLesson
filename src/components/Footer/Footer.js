@@ -1,20 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Footer.module.css';
 import Button from '@material-ui/core/Button';
 
-  const Footer = ({ count }) => (<footer><div className={styles.count}> {count} - Things left to do.</div>
-    <div>
-      <Button>ALL</Button>
-      <Button color="primary">Active</Button>
-      <Button color="primary">Completed</Button>
-      <Button color="secondary">Clear Completed</Button>
+  const Footer = ({id, onClickDeleteDone, onClickFilter, activeTask, doneTask}) => (<footer>
+    <div className={styles.count} 
+         onClick={() => onClickFilter('active')}>
+          {activeTask} - Things left to do.
+    </div>
+    <div className={styles.buttons}>
+      <Button onClick={() => onClickFilter('allTask')}>
+        ALL {activeTask + doneTask}
+      </Button>
+      <Button color="primary" onClick={() => onClickFilter('active')}>
+        Active {activeTask}
+      </Button>
+      <Button color="primary" onClick={() => onClickFilter('done')}>
+        Completed {doneTask}
+      </Button>
+      <Button color="secondary" onClick={() => onClickDeleteDone(id)}>
+        Clear Completed
+      </Button>
     </div>
     </footer>
   )
-
-  Footer.propTypes = {
-    count: PropTypes.number.isRequired
-  };
 
   export default Footer;
